@@ -1,0 +1,254 @@
+//
+@import 'animate';
+html, body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.scroll-icon {
+  display: none;
+}
+
+
+header {
+  background: linear-gradient(to bottom right, #105FF5, #10A2F5);
+  height: 100vh;
+  color: #fff;
+
+  .title {
+    position: absolute;
+    top: 35vh;
+    left: 15px;
+    right: 15px;
+    text-align: center;
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: bold;
+    }
+    h1 {
+      font-size: 40px;
+      text-shadow: rgba(black, 0.16) 0 5px 20px;
+    }
+    h3 {
+      font-size: 20px;
+      color: rgba(#fff, 0.95)
+    }
+  }
+}
+
+.available-services {
+  display: flex;
+  margin: 5vh auto;
+  text-align: center;
+
+  img {
+    height: auto;
+    width: 200px;
+  }
+}
+
+
+.now-playing-bar {
+  width: 100%;
+  background-color: #00121d;
+  color: #fff;
+  box-shadow: rgba(black, 0.16) 0 -5px 20px, rgba(black, 0.16) 0 5px 20px;
+  overflow: hidden;
+  z-index: 99999999999999;
+
+  &.sticky {
+    position: fixed;
+    bottom: 0;
+  }
+
+  .now-playing {
+    width: 50%;
+    float: left;
+    padding: 15px;
+    margin-top: 1.5vh;
+
+    .now-playing-song-img {
+      width: 10%;
+      float: left;
+
+      .placeholder {
+        @extend %placeholder;
+        width: 4rem;
+        height: 4rem;
+      }
+
+      img {
+        height: auto;
+        width: 100%;
+        border-radius: 4px;
+        box-shadow: rgba(black, 0.16) 0 5px 20px;
+      }
+    }
+
+    %placeholder {
+      background-color: rgba(#9a9a9a, 0.15);
+      border-radius: 4px;
+      box-shadow: rgba(0,0,0,0.16) 0 5px 20px 0;
+    }
+
+    .now-playing-song-title {
+      width: 85%;
+      float: right;
+      text-shadow: rgba(black, 0.16) 0 5px 20px;
+      a {
+        color: #fff !important;
+      }
+
+      .title {
+        font-weight: bold;
+        .placeholder {
+          @extend %placeholder;
+          width: 12rem;
+          height: 15px;
+        }
+      }
+      .artist {
+        .placeholder {
+          @extend %placeholder;
+          width: 9rem;
+          height: 15px;
+        }
+      }
+    }
+  }
+
+  .now-playing-controlls {
+    width: 15%;
+    float: right;
+    padding: 15px;
+    margin: 2.5vh auto;
+
+    button {
+      background-color: transparent;
+      border: 0;
+      color: hsla(0,0%,100%,.6);
+      font-size: 20px;
+      margin-left: 10px;
+      margin-right: 10px;
+      cursor: pointer;
+      outline: 0;
+      vertical-align: middle;
+    }
+  }
+}
+
+section {
+  padding: 20vh 0;
+
+  h1 {
+    font-weight: bold;
+    font-size: 60px;
+    color: #00121d;
+  }
+  &#about {
+    background-color: #f3f3f3;
+    p {
+      margin-left: 1vh;
+      width: 85%;
+    }
+  }
+}
+
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  header {
+    .title {
+
+      h1 {
+        font-size: 90px;
+        color: yellow;
+      }
+      h3 {
+        font-size: 45px;
+      }
+    }
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  header {
+    .title {
+
+      h1 {
+        font-size: 100px;
+        color: orange;
+      }
+      h3 {
+        font-size: 50px;
+      }
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  header {
+    .title {
+
+      h1 {
+        font-size: 110px;
+        color: red;
+      }
+      h3 {
+        font-size: 55px;
+        margin-left: 1vh;
+      }
+    }
+  }
+  .scroll-icon {
+   position: absolute;
+   bottom: 10vh;
+   right: 0;
+   left: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 2em;
+   width: 1.2em;
+   font-size: 22px;
+   color: #fff;
+   border-radius: 2em;
+   border: solid 2px;
+   transition: .4s;
+   margin: 0 auto;
+ }
+ .scroll-icon:hover {
+   background-color: rgba(#fff, .05);
+   color: #fff;
+ }
+ .scroll-icon::after {
+   content: '';
+   width: 5px;
+   height: 5px;
+   background-color: #fff;
+   border-radius: 50%;
+   animation: scroll-icon 2.2s infinite cubic-bezier(0.65, 0.05, 0.36, 1);
+ }
+ @keyframes scroll-icon {
+     0% { transform: translateY(-12px); opacity: 0; }
+    30%, 70% { opacity: 1; }
+   100% { transform: translateY(12px); opacity: 0; }
+ }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  header {
+    .title {
+
+      h1 {
+        font-size: 120px;
+        color: #fff;
+      }
+      h3 {
+        font-size: 60px;
+      }
+    }
+  }
+}
